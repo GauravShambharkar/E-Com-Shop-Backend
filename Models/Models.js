@@ -1,11 +1,20 @@
-// Centralized model exports for easy import elsewhere
 const mongoose = require("mongoose");
 const { userSchema } = require("./userSchema");
+const { productSchema } = require("./productSchema");
+const { categorySchema } = require("./categorySchema");
+const { cartSchema } = require("./cartSchema");
+const { orderSchema } = require("./orderSchema");
 
-// Create the User model from the schema
 const User = mongoose.model("User", userSchema);
+const Product = mongoose.model("Product", productSchema);
+const Category = mongoose.model("Category", categorySchema);
+const Cart = mongoose.model("Cart", cartSchema);
+const Order = mongoose.model("Order", orderSchema);
 
-// Export all models here for scalability
 module.exports = {
-  User, // User model for authentication and user management
+  User,
+  Product,
+  Category,
+  Cart,
+  Order,
 };
