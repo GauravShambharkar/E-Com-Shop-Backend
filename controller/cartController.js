@@ -1,6 +1,6 @@
 const { Cart, Product } = require("../Models/Models");
 
-exports.getCart = async (req, res) => {
+const getCart = async (req, res) => {
   try {
     const cart = await Cart.findOne({ user: req.user.id }).populate(
       "items.product"
@@ -76,3 +76,5 @@ exports.updateCartItem = async (req, res) => {
       .json({ message: "Could not update cart.", error: err.message });
   }
 };
+
+module.exports ={ getCart }
