@@ -1,11 +1,5 @@
-// Middleware for verifying JWT and protecting routes
 const { verifyJWT } = require("../utils/userjwtverify");
 
-/**
- * Middleware to verify JWT from Authorization header
- * @route Protected
- * @returns Attaches user info to req.user if valid
- */
 exports.verifyUser = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -32,4 +26,3 @@ exports.verifyUser = async (req, res, next) => {
       .json({ message: "Could not verify your session. Please try again." });
   }
 };
-// TODO: Add role-based access control middleware for admin routes
